@@ -2,7 +2,7 @@ import utils.InputReader
 
 class Day1 {
     private val reader = InputReader("day1.txt")
-    private lateinit var lines: MutableList<String>;
+    private lateinit var lines: MutableList<String>
     private val numberString:List<String> = listOf("one", "two", "three", "four", "five", "six", "seven", "eight", "nine")
 
     private fun getDigitsForLinePartOne(line: String): Int {
@@ -19,9 +19,9 @@ class Day1 {
         if(isNumeric(line)) {
             return  getDigitsForLinePartOne((line))
         }
-        var firstDigit: String = "";
-        var secondDigit: String = "";
-        var chars: String = "";
+        var firstDigit = ""
+        var secondDigit = ""
+        var chars = ""
         // get first digit
         run breaking@ {
             line.forEach { it ->
@@ -29,7 +29,7 @@ class Day1 {
                 val  result = checkForSpelledDigitsOrDigits(it.toString(), chars)
                 if(result.isNotEmpty()) {
                     firstDigit = result
-                    chars = "";
+                    chars = ""
                     return@breaking
                 }
             }
@@ -75,9 +75,9 @@ class Day1 {
         }
         val isSpelledNumber = numberString.find { charsTillNow.contains(it) }
         if(!isSpelledNumber.isNullOrEmpty()) {
-            return convertNumberStringToNumber(isSpelledNumber);
+            return convertNumberStringToNumber(isSpelledNumber)
         }
-        return "";
+        return ""
     }
 
     private fun part1() {
